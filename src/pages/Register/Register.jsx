@@ -1,36 +1,31 @@
 import { useContext } from "react";
-import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 
-const Login = () => {
-  const { googleSignIn, loginUser } = useContext(AuthContext);
-  const handleGoogleSignIn = () => {
-    googleSignIn()
-      .then((res) => {
-        console.log(res.user);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+const Register = () => {
+  const { createUser, updateUser } = useContext(AuthContext);
 
-  const handleSignIn = (e) => {
+  const handleCreateUser = (e) => {
     e.preventDefault();
     const form = e.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    loginUser(email, password)
+    const photoURL = form.photoURL.value;
+
+    createUser(email, password)
       .then((res) => {
         console.log(res.user);
-        Swal.fire({
-          title: "Success!!",
-          text: "Logged in Successfully",
-          icon: "success",
-          timer: 1500,
+        updateUser(name, photoURL).then(() => {
+          Swal.fire({
+            title: "Success!!",
+            text: "User Created Successfully!!",
+            icon: "Success",
+            timer: 1500,
+          });
+          form.reset();
         });
-        form.reset();
       })
       .catch((err) => {
         console.log(err);
@@ -40,7 +35,7 @@ const Login = () => {
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
+          <h1 className="text-5xl font-bold">Register now!</h1>
           <p className="py-6">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
@@ -48,7 +43,19 @@ const Login = () => {
           </p>
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form onSubmit={handleSignIn} className="card-body">
+          <form onSubmit={handleCreateUser} className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                name="name"
+                type="text"
+                placeholder="name"
+                className="input input-bordered"
+                required
+              />
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -72,34 +79,30 @@ const Login = () => {
                 className="input input-bordered"
                 required
               />
+            </div>
+            <div className="form-control">
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
+                <span className="label-text">Photo URL</span>
               </label>
+              <input
+                name="photoURL"
+                type="text"
+                placeholder="photoURL"
+                className="input input-bordered"
+                required
+              />
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary">Sign Up</button>
             </div>
-            <div className="text-center text-md">
-              New Here? Please <Link to={"/register"}>register</Link> now!!
+            <div className="text-center">
+              Already have an account? <Link to={"/login"}>Login here!!</Link>
             </div>
           </form>
-
-          <div className="px-12">
-            <div className="divider"></div>
-            <button
-              onClick={handleGoogleSignIn}
-              className="btn btn-primary w-full mb-12"
-            >
-              <FaGoogle />
-              Sign In with Google
-            </button>
-          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;
