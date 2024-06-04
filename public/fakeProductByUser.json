@@ -1,0 +1,50 @@
+[
+  {
+    "product_name": "WebMaster Pro",
+    "image": "https://i.ibb.co/n1y4DVy/abillion-b-MTl6u-FMONg-unsplash.jpg",
+    "description": "A comprehensive web application for managing your online presence with ease.",
+    "owner_email": "rafiul.rzb@gmail.com",
+    "tags": ["web application", "management", "online presence"],
+    "details_link": "https://example.com/products/webmaster_pro"
+  },
+  {
+    "product_name": "Mobile Genie",
+    "image": "https://i.ibb.co/3y1mRVJ/fotis-fotopoulos-Du-HKo-V44prg-unsplash.jpg",
+    "description": "An intuitive mobile app to enhance your productivity on the go.",
+    "owner_email": "rafiul.rzb@gmail.com",
+    "tags": ["mobile application", "productivity", "on the go"],
+    "details_link": "https://example.com/products/mobile_genie"
+  },
+  {
+    "product_name": "AIMentor",
+    "image": "https://i.ibb.co/XFNb49V/nadine-shaabana-Ys-Pnami-Hdm-I-unsplash.jpg",
+    "description": "AI-powered tools to help you learn and grow in your career.",
+    "owner_email": "rafiul.rzb@gmail.com",
+    "tags": ["AI tools", "career growth", "learning"],
+    "details_link": "https://example.com/products/ai_mentor"
+  },
+  {
+    "product_name": "GameZoneX",
+    "image": "https://i.ibb.co/71p6Ck3/desola-lanre-ologun-v-II7q-KAk-9-A-unsplash.jpg",
+    "description": "A thrilling collection of games that will keep you entertained for hours.",
+    "owner_email": "rafiul.rzb@gmail.com",
+    "tags": ["games", "entertainment", "thrilling"],
+    "details_link": "https://example.com/products/gamezone_x"
+  },
+  {
+    "product_name": "SoftWare Suite",
+    "image": "https://i.ibb.co/YbhpY0t/kobu-agency-7okk-Fhxrx-Nw-unsplash.jpg",
+    "description": "A powerful suite of software tools for all your professional needs.",
+    "owner_email": "rafiul.rzb@gmail.com",
+    "tags": ["software", "professional", "tools"],
+    "details_link": "https://example.com/products/software_suite"
+  },
+  {
+    "product_name": "App Innovator",
+    "image": "https://i.ibb.co/Pj2x6Vh/luke-peters-B6-JINer-WMz0-unsplash.jpg",
+    "description": "A cutting-edge platform for developing and launching mobile applications.",
+    "owner_email": "rafiul.rzb@gmail.com",
+    "tags": ["mobile application", "development", "launch"],
+    "details_link": "https://example.com/products/app_innovator"
+  }
+]

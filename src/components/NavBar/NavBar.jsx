@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import logo from "../../assets/logo/TF1-removebg-preview.png";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -31,7 +32,7 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar fixed bg-slate-700 opacity-60 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -57,21 +58,40 @@ const NavBar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <img src={logo} alt="" className="w-1/3 pl-6" />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <span>{user.email}</span>
-        <div
-          tabIndex={0}
-          role="button"
-          className="btn btn-ghost btn-circle avatar ml-12"
-        >
-          <div className="w-10 rounded-full">
-            <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+        <span>{user?.email}</span>
+
+        <div className="dropdown dropdown-end">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle avatar ml-12"
+          >
+            <div className="w-10 rounded-full">
+              <img alt="User Image" src={user?.photoURL} />
+            </div>
           </div>
+          <ul
+            tabIndex={0}
+            className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box  mt-4"
+          >
+            <li>
+              <h1>{user?.displayName}</h1>
+            </li>
+            <li>
+              <Link to={"/dashboard"}>Dashboard</Link>
+            </li>
+            <li>
+              <button className="btn btn-sm" onClick={handleLogOut}>
+                Log Out
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
