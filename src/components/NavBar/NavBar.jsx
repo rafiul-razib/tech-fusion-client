@@ -66,33 +66,35 @@ const NavBar = () => {
       <div className="navbar-end">
         <span>{user?.email}</span>
 
-        <div className="dropdown dropdown-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar ml-12"
-          >
-            <div className="w-10 rounded-full">
-              <img alt="User Image" src={user?.photoURL} />
+        {user && (
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar ml-12"
+            >
+              <div className="w-10 rounded-full">
+                <img alt="User Image" src={user?.photoURL} />
+              </div>
             </div>
+            <ul
+              tabIndex={0}
+              className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box  mt-4"
+            >
+              <li>
+                <h1>{user?.displayName}</h1>
+              </li>
+              <li>
+                <Link to={"/dashboard"}>Dashboard</Link>
+              </li>
+              <li>
+                <button className="btn btn-sm" onClick={handleLogOut}>
+                  Log Out
+                </button>
+              </li>
+            </ul>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box  mt-4"
-          >
-            <li>
-              <h1>{user?.displayName}</h1>
-            </li>
-            <li>
-              <Link to={"/dashboard"}>Dashboard</Link>
-            </li>
-            <li>
-              <button className="btn btn-sm" onClick={handleLogOut}>
-                Log Out
-              </button>
-            </li>
-          </ul>
-        </div>
+        )}
       </div>
     </div>
   );

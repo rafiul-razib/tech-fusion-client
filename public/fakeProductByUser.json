@@ -5,23 +5,26 @@
     "description": "A comprehensive web application for managing your online presence with ease.",
     "owner_email": "rafiul.rzb@gmail.com",
     "tags": ["web application", "management", "online presence"],
-    "details_link": "https://example.com/products/webmaster_pro"
+    "details_link": "https://example.com/products/webmaster_pro",
+    "insertedOn": "2024-06-03T08:23:56.000Z"
   },
   {
     "product_name": "Mobile Genie",
     "image": "https://i.ibb.co/3y1mRVJ/fotis-fotopoulos-Du-HKo-V44prg-unsplash.jpg",
     "description": "An intuitive mobile app to enhance your productivity on the go.",
-    "owner_email": "rafiul.rzb@gmail.com",
+    "owner_email": "admin@homepark.com",
     "tags": ["mobile application", "productivity", "on the go"],
-    "details_link": "https://example.com/products/mobile_genie"
+    "details_link": "https://example.com/products/mobile_genie",
+    "insertedOn": "2024-06-04T03:35:01.000Z"
   },
   {
     "product_name": "AIMentor",
     "image": "https://i.ibb.co/XFNb49V/nadine-shaabana-Ys-Pnami-Hdm-I-unsplash.jpg",
     "description": "AI-powered tools to help you learn and grow in your career.",
-    "owner_email": "rafiul.rzb@gmail.com",
+    "owner_email": "admin@homepark.com",
     "tags": ["AI tools", "career growth", "learning"],
-    "details_link": "https://example.com/products/ai_mentor"
+    "details_link": "https://example.com/products/ai_mentor",
+    "insertedOn": "2024-06-05T09:55:06.000Z"
   },
   {
     "product_name": "GameZoneX",
@@ -29,15 +32,17 @@
     "description": "A thrilling collection of games that will keep you entertained for hours.",
     "owner_email": "rafiul.rzb@gmail.com",
     "tags": ["games", "entertainment", "thrilling"],
-    "details_link": "https://example.com/products/gamezone_x"
+    "details_link": "https://example.com/products/gamezone_x",
+    "insertedOn": "2024-06-06T03:45:50.000Z"
   },
   {
     "product_name": "SoftWare Suite",
     "image": "https://i.ibb.co/YbhpY0t/kobu-agency-7okk-Fhxrx-Nw-unsplash.jpg",
     "description": "A powerful suite of software tools for all your professional needs.",
-    "owner_email": "rafiul.rzb@gmail.com",
+    "owner_email": "admin@homepark.com",
     "tags": ["software", "professional", "tools"],
-    "details_link": "https://example.com/products/software_suite"
+    "details_link": "https://example.com/products/software_suite",
+    "insertedOn": "2024-06-07T08:55:25.000Z"
   },
   {
     "product_name": "App Innovator",
@@ -45,6 +50,7 @@
     "description": "A cutting-edge platform for developing and launching mobile applications.",
     "owner_email": "rafiul.rzb@gmail.com",
     "tags": ["mobile application", "development", "launch"],
-    "details_link": "https://example.com/products/app_innovator"
+    "details_link": "https://example.com/products/app_innovator",
+    "insertedOn": "2024-06-08T12:35:20.000Z"
   }
 ]
