@@ -3,10 +3,24 @@ import useUserProducts from "../../assets/Hooks/useUserProducts";
 import useAxiosSecure from "../../assets/Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const MyProducts = () => {
-  const [products, refetch] = useUserProducts();
+  // const [products, refetch] = useUserProducts();
   const axiosSecure = useAxiosSecure();
+  const { user } = useContext(AuthContext);
+
+  const { refetch, data: myProducts = [] } = useQuery({
+    queryKey: ["myProducts"],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/products?email=${user.email}`);
+      return res.data;
+    },
+  });
+
+  console.log(myProducts);
 
   const handleDelete = (id) => {
     // console.log("delete requested", id);
@@ -54,7 +68,7 @@ const MyProducts = () => {
         </thead>
         <tbody>
           {/* row 1 */}
-          {products.map((product) => (
+          {myProducts.map((product) => (
             <tr key={product._id}>
               <td>
                 <div className="flex items-center gap-3">

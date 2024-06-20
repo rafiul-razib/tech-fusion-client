@@ -4,10 +4,12 @@ import useUserProducts from "../../assets/Hooks/useUserProducts";
 
 const TrendingProducts = () => {
   const [products] = useUserProducts();
-  const items = [...products];
+  const items = products.filter((product) => product.status === "accepted");
   items.sort(function (a, b) {
     return b.vote - a.vote;
   });
+
+  // console.log("trending", items);
 
   return (
     <div>

@@ -11,6 +11,9 @@ import MyProducts from "../pages/MyProducts/MyProducts";
 import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 import ProductDetail from "../pages/ProductDetail/ProductDetail";
 import PrivateRoute from "./PrivateRoute";
+import AllUsers from "../pages/AllUsers/AllUsers";
+import ReviewProductsQueue from "../pages/Login/ReviewProductsQueue/ReviewProductsQueue";
+import ReportedProducts from "../pages/ReportedProducts/ReportedProducts";
 
 export const router = createBrowserRouter([
   {
@@ -74,6 +77,26 @@ export const router = createBrowserRouter([
             <MyProducts />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "my-products",
+        element: (
+          <PrivateRoute>
+            <MyProducts />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "manage-users",
+        element: <AllUsers />,
+      },
+      {
+        path: "review-products-queue",
+        element: <ReviewProductsQueue />,
+      },
+      {
+        path: "reported-products",
+        element: <ReportedProducts />,
       },
       {
         path: "update/:id",

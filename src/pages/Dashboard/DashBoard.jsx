@@ -1,5 +1,6 @@
 import { AiOutlineProduct } from "react-icons/ai";
 import { FaHome, FaPlus, FaRegUser } from "react-icons/fa";
+import { FaUser } from "react-icons/fa6";
 import { Link, Outlet } from "react-router-dom";
 
 const DashBoard = () => {
@@ -23,7 +24,7 @@ const DashBoard = () => {
             className="drawer-overlay"
           ></label>
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-            {/* Sidebar content here */}
+            {/* General Users */}
             <li>
               <Link to={"profile"}>
                 <FaRegUser /> My Profile
@@ -39,6 +40,40 @@ const DashBoard = () => {
                 <AiOutlineProduct /> My Products
               </Link>
             </li>
+            <div className="divider"></div>
+
+            {/* MODERATOR */}
+
+            <li>
+              <Link to={"review-products-queue"} className="disabled">
+                <AiOutlineProduct /> Product Review Queue
+              </Link>
+            </li>
+            <li>
+              <Link to={"reported-products"}>
+                <FaUser /> Reported Contents
+              </Link>
+            </li>
+
+            <div className="divider"></div>
+
+            {/* ADMIN */}
+            <li>
+              <Link to={""}>
+                <AiOutlineProduct /> Statistics
+              </Link>
+            </li>
+            <li>
+              <Link to={"manage-users"}>
+                <FaUser /> Manage Users
+              </Link>
+            </li>
+            <li>
+              <Link to={"all-products"}>
+                <AiOutlineProduct /> Manage Coupons
+              </Link>
+            </li>
+
             <div className="divider"></div>
             <li>
               <Link to={"/"}>

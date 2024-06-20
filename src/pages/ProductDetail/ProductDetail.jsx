@@ -12,7 +12,7 @@ const ProductDetail = () => {
   const { user } = useContext(AuthContext);
   const [onceClicked, setOnceClicked] = useState(false);
   const productId = useParams();
-  const { data: product = [] } = useQuery({
+  const { refetch, data: product = [] } = useQuery({
     queryKey: ["product"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/products/${productId.id}`);
@@ -39,6 +39,13 @@ const ProductDetail = () => {
     setOnceClicked(true);
   };
 
+  const handleReport = (id) => {
+    axiosSecure.post(`product/report/${id}`).then((res) => {
+      refetch();
+      console.log(res.data);
+    });
+  };
+
   return (
     <div className="card w-1/2 mx-auto bg-base-100 shadow-xl pt-24 rounded-none">
       <figure>
@@ -59,7 +66,12 @@ const ProductDetail = () => {
           >
             <GrLike /> {product.vote}
           </button>
-          <button className="btn btn-outline btn-xs">Report Product !</button>
+          <button
+            onClick={() => handleReport(_id)}
+            className="btn btn-outline btn-xs"
+          >
+            Report Product !
+          </button>
         </div>
       </div>
       <Reviews reviewProductId={productId.id}></Reviews>
