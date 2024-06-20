@@ -1,15 +1,29 @@
 import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../assets/Hooks/useAxiosPublic";
 
 const Login = () => {
   const { googleSignIn, loginUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const axiosPublic = useAxiosPublic();
+
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((res) => {
-        console.log(res.user);
+        const userInfo = {
+          name: res.user.displayName,
+          email: res.user.email,
+        };
+
+        axiosPublic.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+          navigate(location?.state ? location.state : "/");
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -31,6 +45,7 @@ const Login = () => {
           timer: 1500,
         });
         form.reset();
+        navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
         console.log(err);

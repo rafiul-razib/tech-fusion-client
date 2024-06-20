@@ -21,6 +21,7 @@ const AddProducts = () => {
     const details_link = form.details_link.value;
     const tags = form.tags.value;
     const insertedOn = new Date();
+    const status = "Pending";
 
     const imageFile = { image: form.image.files[0] };
 
@@ -42,6 +43,7 @@ const AddProducts = () => {
         tags,
         insertedOn,
         image: res.data.data.display_url,
+        status,
       };
 
       console.log(newProduct);

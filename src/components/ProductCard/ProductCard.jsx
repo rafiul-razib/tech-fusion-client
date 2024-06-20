@@ -1,21 +1,41 @@
-import { BiUpvote } from "react-icons/bi";
+import { BiDownvote, BiUpvote } from "react-icons/bi";
 import useAxiosSecure from "../../assets/Hooks/useAxiosSecure";
 import useUserProducts from "../../assets/Hooks/useUserProducts";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { GrDislike, GrLike } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const axiosSecure = useAxiosSecure();
   const [, refetch] = useUserProducts();
   const { user } = useContext(AuthContext);
-  const { product_name, image, tags, description, _id, vote, owner_email } =
-    product;
+  const [onceClicked, setOnceClicked] = useState(false);
+  const {
+    product_name,
+    image,
+    tags,
+    description,
+    _id,
+    vote,
+    downVote,
+    owner_email,
+  } = product;
 
   const handleUpVote = async (id) => {
     const res = await axiosSecure.post(`product/upVote/${id}`);
     console.log(res.data);
     refetch();
+
+    setOnceClicked(true);
+  };
+  const handleDownVote = async (id) => {
+    const res = await axiosSecure.post(`product/downVote/${id}`);
+    console.log(res.data);
+    refetch();
+
+    setOnceClicked(true);
   };
 
   return (
@@ -26,7 +46,9 @@ const ProductCard = ({ product }) => {
         </figure>
       </div>
       <div className="px-4 space-y-2">
-        <h2 className="card-title">{product_name}</h2>
+        <Link to={`product/${_id}`}>
+          <h2 className="card-title">{product_name}</h2>
+        </Link>
         <p>{description}</p>
         <div className="py-3">
           <h2>Tags : </h2>
@@ -36,11 +58,19 @@ const ProductCard = ({ product }) => {
             onClick={() => handleUpVote(_id)}
             className={`btn btn-xs btn-outline ${
               user?.email == owner_email && "btn-disabled"
-            }`}
+            } ${onceClicked && "btn-disabled"}`}
           >
-            <BiUpvote /> +{product.vote}
+            <GrLike /> {product.vote}
           </button>
-          <button className="btn btn-xs btn-outline">Details</button>
+          {/* <button
+            onClick={() => handleDownVote(_id)}
+            className={`btn btn-xs btn-outline ${
+              user?.email == owner_email && "btn-disabled"
+            } ${onceClicked && "btn-disabled"}`}
+          >
+            <GrDislike /> {product.downVote}
+          </button> */}
+          {/* <button className="btn btn-xs btn-outline">Details</button> */}
         </div>
       </div>
     </div>

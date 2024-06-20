@@ -6,7 +6,8 @@
     "owner_email": "rafiul.rzb@gmail.com",
     "tags": ["web application", "management", "online presence"],
     "details_link": "https://example.com/products/webmaster_pro",
-    "insertedOn": "2024-06-03T08:23:56.000Z"
+    "insertedOn": "2024-06-03T08:23:56.000Z",
+    "status" : "Pending"
   },
   {
     "product_name": "Mobile Genie",
@@ -15,7 +16,8 @@
     "owner_email": "admin@homepark.com",
     "tags": ["mobile application", "productivity", "on the go"],
     "details_link": "https://example.com/products/mobile_genie",
-    "insertedOn": "2024-06-04T03:35:01.000Z"
+    "insertedOn": "2024-06-04T03:35:01.000Z",
+    "status" : "Pending"
   },
   {
     "product_name": "AIMentor",
@@ -24,7 +26,8 @@
     "owner_email": "admin@homepark.com",
     "tags": ["AI tools", "career growth", "learning"],
     "details_link": "https://example.com/products/ai_mentor",
-    "insertedOn": "2024-06-05T09:55:06.000Z"
+    "insertedOn": "2024-06-05T09:55:06.000Z",
+    "status" : "Pending"
   },
   {
     "product_name": "GameZoneX",
@@ -33,7 +36,8 @@
     "owner_email": "rafiul.rzb@gmail.com",
     "tags": ["games", "entertainment", "thrilling"],
     "details_link": "https://example.com/products/gamezone_x",
-    "insertedOn": "2024-06-06T03:45:50.000Z"
+    "insertedOn": "2024-06-06T03:45:50.000Z",
+    "status" : "Pending"
   },
   {
     "product_name": "SoftWare Suite",
@@ -42,7 +46,8 @@
     "owner_email": "admin@homepark.com",
     "tags": ["software", "professional", "tools"],
     "details_link": "https://example.com/products/software_suite",
-    "insertedOn": "2024-06-07T08:55:25.000Z"
+    "insertedOn": "2024-06-07T08:55:25.000Z",
+    "status" : "Pending"
   },
   {
     "product_name": "App Innovator",
@@ -51,6 +56,7 @@
     "owner_email": "rafiul.rzb@gmail.com",
     "tags": ["mobile application", "development", "launch"],
     "details_link": "https://example.com/products/app_innovator",
-    "insertedOn": "2024-06-08T12:35:20.000Z"
+    "insertedOn": "2024-06-08T12:35:20.000Z",
+    "status" : "Pending"
   }
 ]

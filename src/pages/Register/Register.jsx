@@ -1,10 +1,14 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../assets/Hooks/useAxiosPublic";
 
 const Register = () => {
   const { createUser, updateUser } = useContext(AuthContext);
+
+  const axiosPublic = useAxiosPublic();
+  const navigate = useNavigate();
 
   const handleCreateUser = (e) => {
     e.preventDefault();
@@ -18,13 +22,23 @@ const Register = () => {
       .then((res) => {
         console.log(res.user);
         updateUser(name, photoURL).then(() => {
-          Swal.fire({
-            title: "Success!!",
-            text: "User Created Successfully!!",
-            icon: "success",
-            timer: 1500,
+          const userInfo = {
+            email: email,
+            name: name,
+          };
+          axiosPublic.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              console.log("User added to database!");
+              form.reset();
+              Swal.fire({
+                title: "Success!!",
+                text: "User Created Successfully!!",
+                icon: "success",
+                timer: 1500,
+              });
+            }
+            navigate("/");
           });
-          form.reset();
         });
       })
       .catch((err) => {

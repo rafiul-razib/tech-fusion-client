@@ -1,19 +1,11 @@
-import { useEffect, useState } from "react";
 import SectionHeader from "../SectionHeader/SectionHeader";
 import ProductCard from "../ProductCard/ProductCard";
 import useUserProducts from "../../assets/Hooks/useUserProducts";
 
 const FeaturedProducts = () => {
-  // const [products, setProducts] = useState([]);
   const [products] = useUserProducts();
-  console.log(products);
-  // useEffect(() => {
-  //   fetch("fakeProductByUser.json")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setProducts(data);
-  //     });
-  // }, []);
+  // console.log(products);
+
   return (
     <div>
       <SectionHeader
