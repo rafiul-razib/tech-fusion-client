@@ -1,6 +1,7 @@
 import SectionHeader from "../SectionHeader/SectionHeader";
 import ProductCard from "../ProductCard/ProductCard";
 import useUserProducts from "../../assets/Hooks/useUserProducts";
+import { Link } from "react-router-dom";
 
 const TrendingProducts = () => {
   const [products] = useUserProducts();
@@ -25,6 +26,11 @@ const TrendingProducts = () => {
             product={product}
           ></ProductCard>
         ))}
+      </div>
+      <div className="my-4 flex justify-center">
+        <Link to={"/all-products"}>
+          <button className="btn btn-outline">Show All Products</button>
+        </Link>
       </div>
     </div>
   );

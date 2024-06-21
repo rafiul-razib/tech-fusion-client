@@ -82,7 +82,7 @@ const MyProducts = () => {
                   </div>
                 </div>
               </td>
-              <td>{product?.votes}</td>
+              <td>{product?.vote}</td>
               <td>{product?.status}</td>
               <th>
                 <Link to={`/dashboard/update/${product._id}`}>

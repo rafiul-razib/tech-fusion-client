@@ -12,6 +12,7 @@ const ProductDetail = () => {
   const { user } = useContext(AuthContext);
   const [onceClicked, setOnceClicked] = useState(false);
   const productId = useParams();
+  const [reported, setReported] = useState(false);
   const { refetch, data: product = [] } = useQuery({
     queryKey: ["product"],
     queryFn: async () => {
@@ -19,6 +20,10 @@ const ProductDetail = () => {
       return res.data;
     },
   });
+
+  const reporter = {
+    reporterEmail: user.email,
+  };
 
   const {
     product_name,
@@ -43,6 +48,9 @@ const ProductDetail = () => {
     axiosSecure.post(`product/report/${id}`).then((res) => {
       refetch();
       console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        setReported(true);
+      }
     });
   };
 
@@ -66,12 +74,20 @@ const ProductDetail = () => {
           >
             <GrLike /> {product.vote}
           </button>
-          <button
-            onClick={() => handleReport(_id)}
-            className="btn btn-outline btn-xs"
-          >
-            Report Product !
-          </button>
+          {reported ? (
+            <button className={`btn btn-outline btn-xs disabled`}>
+              Reported !
+            </button>
+          ) : (
+            <button
+              onClick={() => handleReport(_id)}
+              className={`btn btn-outline btn-xs ${
+                user?.email == owner_email && "btn-disabled"
+              }`}
+            >
+              Report Product !
+            </button>
+          )}
         </div>
       </div>
       <Reviews reviewProductId={productId.id}></Reviews>

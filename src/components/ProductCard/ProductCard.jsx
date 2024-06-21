@@ -5,13 +5,15 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { GrDislike, GrLike } from "react-icons/gr";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import PrivateRoute from "../../Routes/PrivateRoute";
 
 const ProductCard = ({ product }) => {
   const axiosSecure = useAxiosSecure();
   const [, refetch] = useUserProducts();
   const { user } = useContext(AuthContext);
   const [onceClicked, setOnceClicked] = useState(false);
+  const navigate = useNavigate();
   const {
     product_name,
     image,
@@ -24,11 +26,15 @@ const ProductCard = ({ product }) => {
   } = product;
 
   const handleUpVote = async (id) => {
-    const res = await axiosSecure.post(`product/upVote/${id}`);
-    console.log(res.data);
-    refetch();
+    if (user) {
+      const res = await axiosSecure.post(`product/upVote/${id}`);
+      console.log(res.data);
+      refetch();
 
-    setOnceClicked(true);
+      setOnceClicked(true);
+    } else {
+      navigate("/login");
+    }
   };
   const handleDownVote = async (id) => {
     const res = await axiosSecure.post(`product/downVote/${id}`);
@@ -62,6 +68,7 @@ const ProductCard = ({ product }) => {
           >
             <GrLike /> {product.vote}
           </button>
+
           {/* <button
             onClick={() => handleDownVote(_id)}
             className={`btn btn-xs btn-outline ${
