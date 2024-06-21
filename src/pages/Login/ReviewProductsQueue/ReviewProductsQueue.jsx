@@ -2,12 +2,24 @@ import { Link } from "react-router-dom";
 import useUserProducts from "../../../assets/Hooks/useUserProducts";
 import { FaTrash } from "react-icons/fa";
 import useAxiosSecure from "../../../assets/Hooks/useAxiosSecure";
-import Swal from "sweetalert2";
 
 const ReviewProductsQueue = () => {
   const [products, refetch] = useUserProducts();
   const axiosSecure = useAxiosSecure();
   console.log(products);
+
+  function sortProducts(products) {
+    const sortOrder = {
+      pending: 1,
+      accepted: 2,
+      rejected: 3,
+    };
+
+    products.sort((a, b) => sortOrder[a.status] - sortOrder[b.status]);
+    return products;
+  }
+
+  const productQueue = sortProducts(products);
 
   const handleMakeFeatured = (id) => {
     axiosSecure.patch(`products/featured/${id}`).then((res) => {
@@ -48,7 +60,7 @@ const ReviewProductsQueue = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {products.map((product) => (
+            {productQueue.map((product) => (
               <tr key={product._id}>
                 <td>
                   <div className="flex items-center gap-3">

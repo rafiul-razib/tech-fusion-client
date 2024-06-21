@@ -21,9 +21,9 @@ const NavBar = () => {
       </li>
 
       {user ? (
-        <button onClick={handleLogOut} className="btn btn-outline">
-          LogOut
-        </button>
+        <li>
+          <Link onClick={handleLogOut}>LogOut</Link>
+        </li>
       ) : (
         <li>
           <NavLink to={"/login"}>Login</NavLink>

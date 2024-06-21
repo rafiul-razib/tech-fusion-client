@@ -15,7 +15,7 @@ const AllProducts = () => {
       />
 
       <div className="grid grid-cols-2 gap-5 mx-auto max-w-6xl my-10">
-        {acceptedProducts.map((product) => (
+        {acceptedProducts.slice(0, 6).map((product) => (
           <ProductCard
             key={product.product_name}
             product={product}
