@@ -14,8 +14,8 @@ const AllProducts = () => {
         description="The latest in web and mobile apps, AI tools, and software solutions. These popular offerings are redefining industry standards, delivering innovation, and enhancing user experience. Stay ahead with the top-rated products making waves in the tech world."
       />
 
-      <div className="grid grid-cols-2 gap-5 mx-auto max-w-6xl my-10">
-        {acceptedProducts.slice(0, 6).map((product) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mx-auto max-w-6xl my-10">
+        {acceptedProducts.map((product) => (
           <ProductCard
             key={product.product_name}
             product={product}

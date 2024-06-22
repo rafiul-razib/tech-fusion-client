@@ -15,6 +15,8 @@ import AllUsers from "../pages/AllUsers/AllUsers";
 import ReviewProductsQueue from "../pages/Login/ReviewProductsQueue/ReviewProductsQueue";
 import ReportedProducts from "../pages/ReportedProducts/ReportedProducts";
 import Page404 from "../pages/Page404/Page404";
+import Coupons from "../pages/Coupons/Coupons";
+import Stats from "../pages/Stats/Stats";
 
 export const router = createBrowserRouter([
   {
@@ -55,9 +57,10 @@ export const router = createBrowserRouter([
         <DashBoard />
       </PrivateRoute>
     ),
+    errorElement: <Page404 />,
     children: [
       {
-        path: "profile",
+        path: "",
         element: (
           <PrivateRoute>
             <UserProfile />
@@ -81,10 +84,18 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "my-products",
+        path: "coupons",
         element: (
           <PrivateRoute>
-            <MyProducts />
+            <Coupons />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "stats",
+        element: (
+          <PrivateRoute>
+            <Stats />
           </PrivateRoute>
         ),
       },

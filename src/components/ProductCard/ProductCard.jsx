@@ -45,21 +45,21 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl rounded-none">
+    <div className="card lg:card-side bg-base-100 shadow-2xl rounded-none">
       <div>
-        <figure className="w-[300px]">
+        <figure className="w-[300px] mx-auto">
           <img className="w-full" src={image} alt="Album" />
         </figure>
       </div>
-      <div className="px-4 space-y-2">
+      <div className="px-4 space-y-2 text-center lg:text-start py-2">
         <Link to={`product/${_id}`}>
-          <h2 className="card-title">{product_name}</h2>
+          <h2 className="text-3xl font-bold">{product_name}</h2>
         </Link>
         <p>{description}</p>
-        <div className="py-3">
-          <h2>Tags : </h2>
+        <div className="text-start">
+          <h2>Tags : {tags} </h2>
         </div>
-        <div className="card-actions justify-start items-center pb-1">
+        <div className="card-actions justify-end  pr-4">
           <button
             onClick={() => handleUpVote(_id)}
             className={`btn btn-xs btn-outline ${

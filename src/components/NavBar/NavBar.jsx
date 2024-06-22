@@ -58,13 +58,13 @@ const NavBar = () => {
             {links}
           </ul>
         </div>
-        <img src={logo} alt="" className="w-1/3 pl-6" />
+        <img src={logo} alt="" className="w-1/2 lg:w-1/3 pl-6" />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <span>{user?.email}</span>
+        <span className="hidden lg:block">{user?.email}</span>
 
         {user && (
           <div className="dropdown dropdown-end">

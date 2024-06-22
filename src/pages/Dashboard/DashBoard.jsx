@@ -40,8 +40,8 @@ const DashBoard = () => {
   });
   // console.log(userData);
 
-  console.log("isAdmin", isAdmin);
-  console.log("isModerator", isModerator);
+  // console.log("isAdmin", isAdmin);
+  // console.log("isModerator", isModerator);
 
   return (
     <div className="flex">
@@ -62,10 +62,10 @@ const DashBoard = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+          <ul className="menu p-4 w-50 md:w-80 min-h-full bg-base-200 text-base-content">
             {/* General Users */}
             <li>
-              <Link to={"profile"}>
+              <Link to={""}>
                 <FaRegUser /> My Profile
               </Link>
             </li>
@@ -104,7 +104,7 @@ const DashBoard = () => {
             {isAdmin && (
               <>
                 <li>
-                  <Link to={""}>
+                  <Link to={"stats"}>
                     <AiOutlineProduct /> Statistics
                   </Link>
                 </li>
@@ -114,7 +114,7 @@ const DashBoard = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"all-products"}>
+                  <Link to={"coupons"}>
                     <AiOutlineProduct /> Manage Coupons
                   </Link>
                 </li>

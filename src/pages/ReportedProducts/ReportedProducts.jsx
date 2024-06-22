@@ -3,6 +3,7 @@ import useAxiosSecure from "../../assets/Hooks/useAxiosSecure";
 import useUserProducts from "../../assets/Hooks/useUserProducts";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import SectionHeader from "../../components/SectionHeader/SectionHeader";
 
 const ReportedProducts = () => {
   const [products, refetch] = useUserProducts();
@@ -11,7 +12,7 @@ const ReportedProducts = () => {
   const reportedProducts = products.filter((product) => product.report > 0);
 
   const handleDelete = (id) => {
-    console.log("Requested delete", id);
+    // console.log("Requested delete", id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -42,9 +43,10 @@ const ReportedProducts = () => {
     refetch();
   };
 
-  console.log(reportedProducts);
+  // console.log(reportedProducts);
   return (
     <div>
+      <SectionHeader heading="Reported Products" />
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
           {/* head */}

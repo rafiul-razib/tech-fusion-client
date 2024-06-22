@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import useUserProducts from "../../../assets/Hooks/useUserProducts";
 import { FaTrash } from "react-icons/fa";
 import useAxiosSecure from "../../../assets/Hooks/useAxiosSecure";
+import SectionHeader from "../../../components/SectionHeader/SectionHeader";
 
 const ReviewProductsQueue = () => {
   const [products, refetch] = useUserProducts();
   const axiosSecure = useAxiosSecure();
-  console.log(products);
+  // console.log(products);
 
   function sortProducts(products) {
     const sortOrder = {
@@ -44,9 +45,9 @@ const ReviewProductsQueue = () => {
   return (
     <div>
       <div>
-        <h1>Product Queue</h1>
+        <SectionHeader heading="Product Review Queue" />
       </div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto ps-36 md:ps-0">
         <table className="table">
           {/* head */}
           <thead>

@@ -13,7 +13,7 @@ const FeaturedProducts = () => {
   // console.log(featuredItems);
 
   return (
-    <div>
+    <div className="max-w-6xl mx-auto">
       <SectionHeader
         heading="Featured Products"
         description="Discover Tech Fusion's featured products: cutting-edge web and mobile apps, innovative AI tools, and powerful software solutions. Designed for efficiency and user engagement, our products help transform your business and drive success in the digital age. Explore the future of technology with Tech Fusion!"

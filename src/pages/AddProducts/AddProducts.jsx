@@ -32,7 +32,7 @@ const AddProducts = () => {
       },
     });
 
-    console.log(res);
+    // console.log(res);
 
     if (res.data.success) {
       const newProduct = {
@@ -46,7 +46,7 @@ const AddProducts = () => {
         status,
       };
 
-      console.log(newProduct);
+      // console.log(newProduct);
 
       const productRes = await axiosSecure.post("/products", newProduct);
 
@@ -61,8 +61,8 @@ const AddProducts = () => {
   };
 
   return (
-    <div className="px-12 w-2/3">
-      <h3 className="text-3xl font-bold">Add Your New Product</h3>
+    <div className="px-12 w-full lg:w-2/3 pt-12">
+      <h3 className="text-3xl font-bold text-center">Add Your New Product</h3>
       <form onSubmit={handleAddProduct} className="w-full">
         <div className="form-control">
           <label className="label">

@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import useReviews from "../../assets/Hooks/useReviews";
 import { AuthContext } from "../../providers/AuthProvider";
 import "@smastrom/react-rating/style.css";
+import SectionHeader from "../SectionHeader/SectionHeader";
 
 const Reviews = ({ reviewProductId }) => {
   const axiosSecure = useAxiosSecure();
@@ -53,68 +54,80 @@ const Reviews = ({ reviewProductId }) => {
   return (
     <div>
       {/* Review */}
-      <div>Reviews section</div>
-      <div>
-        <h1>Post review</h1>
-        <div className="card shrink-0 w-full max-w-sm bg-base-100 shadow-none mx-auto">
-          <form onSubmit={handleReview} className="card-body">
-            <div className="form-control">
-              <div className="flex items-center justify-between">
-                <h1>{user?.displayName}</h1>
+      <SectionHeader heading="Reviews" />
 
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="btn btn-ghost btn-circle avatar ml-12"
-                >
-                  <div className="w-10 rounded-full">
-                    <img alt="User Image" src={user?.photoURL} />
+      <div className="md:flex flex-row-reverse max-w-6xl mx-auto px-4">
+        <div className="md:w-1/2">
+          <h1 className="text-2xl font-bold text-center text-blue-500">
+            Post review
+          </h1>
+          <div className="card shrink-0 w-full bg-base-100 shadow-none mx-auto">
+            <form onSubmit={handleReview} className="card-body">
+              <div className="form-control">
+                <div className="flex items-center justify-between">
+                  <h1 className="text-red-600 text-2xl">{user?.displayName}</h1>
+
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar ml-12"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img alt="User Image" src={user?.photoURL} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Review</span>
+                </label>
+                <textarea
+                  name="review_message"
+                  type="text"
+                  placeholder="Write your review"
+                  className="input input-bordered rounded-none"
+                  required
+                />
+              </div>
+              {/* Rating */}
+              <div>
+                <Rating
+                  style={{ maxWidth: 120 }}
+                  value={rating}
+                  onChange={setRating}
+                />
+              </div>
+              <div className="form-control mt-6">
+                <button className="btn btn-primary">Submit Review</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div className="md:w-1/2">
+          <h3 className="text-2xl font-bold text-start text-blue-500 ps-3">
+            {reviews.length} Reviews
+          </h3>
+          {reviews.map((item) => (
+            <div key={item._id}>
+              <div className="card card-side bg-base-100 shadow-xl my-10 rounded-none mx-4 lg:mx-2">
+                <figure>
+                  <img src={item.photoURL} alt="user pic" />
+                </figure>
+                <div className="card-body py-0 lg:px-2">
+                  <h2 className="text-sm lg:text-lg pt-0">
+                    {item.review_message}
+                  </h2>
+                  <Rating style={{ maxWidth: 80 }} value={item.rating_stars} />
+                  <div className="text-xs justify-start">
+                    {item.displayName}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Review</span>
-              </label>
-              <input
-                name="review_message"
-                type="text"
-                placeholder="Review description"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            {/* Rating */}
-            <div>
-              <Rating
-                style={{ maxWidth: 180 }}
-                value={rating}
-                onChange={setRating}
-              />
-            </div>
-            <div className="form-control mt-6">
-              <button className="btn btn-primary">Submit Review</button>
-            </div>
-          </form>
+          ))}
         </div>
-      </div>
-      <div>
-        <h3>{reviews.length} Reviews</h3>
-        {reviews.map((item) => (
-          <div key={item._id}>
-            <div className="card card-side bg-base-100 shadow-xl">
-              <figure className="rounded">
-                <img src={item.photoURL} alt="Movie" />
-              </figure>
-              <div className="card-body">
-                <h2 className="text-sm">{item.review_message}</h2>
-                <Rating style={{ maxWidth: 180 }} value={item.rating_stars} />
-                <div className="text-xs justify-start">{item.displayName}</div>
-              </div>
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );

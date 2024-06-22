@@ -55,39 +55,41 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="card w-1/2 mx-auto bg-base-100 shadow-xl pt-24 rounded-none">
-      <figure>
-        <img src={image} alt="product-img" />
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title">{product_name}</h2>
-        <p>{description}</p>
-        <p>Tags : {tags}</p>
-        <p>Up-vote count : {vote}</p>
-        <p>External link : {details_link}</p>
-        <div className="card-actions justify-end items-center">
-          <button
-            onClick={() => handleUpVote(_id)}
-            className={`btn btn-xs btn-outline ${
-              user?.email == owner_email && "btn-disabled"
-            } ${onceClicked && "btn-disabled"}`}
-          >
-            <GrLike /> {product.vote}
-          </button>
-          {reported ? (
-            <button className={`btn btn-outline btn-xs disabled`}>
-              Reported !
-            </button>
-          ) : (
+    <div>
+      <div className="card lg:card-side max-w-6xl mx-auto bg-base-100 shadow-xl pt-24 rounded-none">
+        <figure className="w-1/2 mx-auto">
+          <img src={image} alt="product-img" />
+        </figure>
+        <div className="card-body">
+          <h2 className="text-4xl font-semibold">{product_name}</h2>
+          <p className="text-lg">{description}</p>
+          <p className="text-lg">Tags : {tags}</p>
+          <p className="text-lg">Up-vote count : {vote}</p>
+          <p className="text-md">External link : {details_link}</p>
+          <div className="card-actions justify-end items-center">
             <button
-              onClick={() => handleReport(_id)}
-              className={`btn btn-outline btn-xs ${
+              onClick={() => handleUpVote(_id)}
+              className={`btn btn-xs btn-outline ${
                 user?.email == owner_email && "btn-disabled"
-              }`}
+              } ${onceClicked && "btn-disabled"}`}
             >
-              Report Product !
+              <GrLike /> {product.vote}
             </button>
-          )}
+            {reported ? (
+              <button className={`btn btn-outline btn-xs disabled`}>
+                Reported !
+              </button>
+            ) : (
+              <button
+                onClick={() => handleReport(_id)}
+                className={`btn btn-outline btn-xs ${
+                  user?.email == owner_email && "btn-disabled"
+                }`}
+              >
+                Report Product !
+              </button>
+            )}
+          </div>
         </div>
       </div>
       <Reviews reviewProductId={productId.id}></Reviews>
