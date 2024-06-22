@@ -49,6 +49,12 @@ const Login = () => {
       })
       .catch((err) => {
         console.log(err);
+        Swal.fire({
+          title: "Error",
+          text: err.message,
+          icon: "warning",
+          timer: 1500,
+        });
       });
   };
   return (

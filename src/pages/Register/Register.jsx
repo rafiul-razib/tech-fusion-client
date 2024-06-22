@@ -20,7 +20,7 @@ const Register = () => {
 
     createUser(email, password)
       .then((res) => {
-        console.log(res.user);
+        // console.log(res.user);
         updateUser(name, photoURL).then(() => {
           const userInfo = {
             email: email,
@@ -43,6 +43,12 @@ const Register = () => {
       })
       .catch((err) => {
         console.log(err);
+        Swal.fire({
+          title: "Error!!",
+          text: err.message,
+          icon: "warning",
+          timer: 1500,
+        });
       });
   };
   return (
