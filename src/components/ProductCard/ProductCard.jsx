@@ -53,11 +53,11 @@ const ProductCard = ({ product }) => {
       </div>
       <div className="px-4 space-y-2 text-center lg:text-start py-2">
         <Link to={`product/${_id}`}>
-          <h2 className="text-3xl font-bold">{product_name}</h2>
+          <h2 className="text-2xl font-bold">{product_name}</h2>
         </Link>
         <p>{description}</p>
         <div className="text-start">
-          <h2>Tags : {tags} </h2>
+          <h2 className="text-sm">Tags : {tags} </h2>
         </div>
         <div className="card-actions justify-end  pr-4">
           <button
