@@ -14,11 +14,13 @@ import PrivateRoute from "./PrivateRoute";
 import AllUsers from "../pages/AllUsers/AllUsers";
 import ReviewProductsQueue from "../pages/Login/ReviewProductsQueue/ReviewProductsQueue";
 import ReportedProducts from "../pages/ReportedProducts/ReportedProducts";
+import Page404 from "../pages/Page404/Page404";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <Page404 />,
     children: [
       {
         path: "/",
@@ -106,7 +108,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://tech-fusion-server-gamma.vercel.app/products/${params.id}`
+          ),
       },
     ],
   },

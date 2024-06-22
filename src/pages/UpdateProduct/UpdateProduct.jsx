@@ -33,7 +33,7 @@ const UpdateProduct = () => {
       },
     });
 
-    console.log(res);
+    // console.log(res);
 
     if (res.data.success) {
       const newProduct = {
@@ -49,7 +49,7 @@ const UpdateProduct = () => {
         `/dashboard/products/${product._id}`,
         newProduct
       );
-      console.log(updateItem.data);
+      // console.log(updateItem.data);
       if (updateItem.data.modifiedCount > 0) {
         Swal.fire({
           title: "Success!",
