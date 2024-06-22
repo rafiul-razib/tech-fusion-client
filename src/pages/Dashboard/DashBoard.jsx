@@ -1,6 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { AiOutlineProduct } from "react-icons/ai";
-import { FaHome, FaPlus, FaRegUser } from "react-icons/fa";
+import {
+  FaHome,
+  FaPlus,
+  FaProductHunt,
+  FaRegUser,
+  FaSignOutAlt,
+} from "react-icons/fa";
 import { FaUser } from "react-icons/fa6";
 import { Link, Outlet } from "react-router-dom";
 import useAxiosSecure from "../../assets/Hooks/useAxiosSecure";
@@ -11,8 +17,12 @@ const DashBoard = () => {
   const [isModerator, setIsModerator] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   // console.log(user);
+
+  const handleLogOut = () => {
+    logOut();
+  };
 
   const axiosSecure = useAxiosSecure();
 
@@ -119,7 +129,12 @@ const DashBoard = () => {
             </li>
             <li>
               <Link to={"/all-products"}>
-                <FaHome /> All Products
+                <FaProductHunt /> All Products
+              </Link>
+            </li>
+            <li>
+              <Link onClick={handleLogOut}>
+                <FaSignOutAlt /> LogOut
               </Link>
             </li>
           </ul>

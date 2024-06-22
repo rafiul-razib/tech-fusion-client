@@ -14,7 +14,7 @@ const MyProducts = () => {
   const { refetch, data: myProducts = [] } = useQuery({
     queryKey: ["myProducts"],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/products?email=${user.email}`);
+      const res = await axiosSecure.get(`/my-products?email=${user.email}`);
       return res.data;
     },
   });
