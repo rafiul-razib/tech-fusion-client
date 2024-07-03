@@ -1,8 +1,11 @@
-# React + Vite
+Live site url: https://crafted-reflections.web.app/;
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This website is on the category of tech products. Focused on Software & Applications. This is a Full-stack website with backend support. The key technologies used are as follows-
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. React Js
+2. React Router DOm
+3. Tailwind CSS and Daisy UI
+4. React Icons
+5. Swiper Js
+6. Express JS
+7. Mongodb.
