@@ -1,4 +1,4 @@
-Live site url: https://crafted-reflections.web.app/;
+Live site url: https://tech-fusion-194e6.web.app/;
 
 This website is on the category of tech products. Focused on Software & Applications. This is a Full-stack website with backend support. The key technologies used are as follows-
 
